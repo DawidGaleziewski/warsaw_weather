@@ -1,32 +1,21 @@
-// #mapid {
-//   height: 360px;
-// }
+@import './settings/colors.scss';
+@import './layout/navbar/navbar.scss';
+@import './layout/aside/aside';
+@import './layout/main/main.scss';
+@import './layout/footer/footer';
 
-// // Javascript element styling
-// .alert {
-//   background-color: #e57373;
-
-//   .error-text {
-//     color: #fff;
-//     padding: 2rem;
-//   }
-// }
-
+html {
+  height: 100%;
+}
 body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-
-main {
-  flex: 1 0 auto;
-}
-
-.footer {
-  .media {
-    &__item {
-      writing-mode: vertical-rl;
-      text-orientation: mixed;
-    }
-  }
+  height: 100%;
+  background-color: $background-primary;
+  background: linear-gradient(
+    120deg,
+    $background-secondary 0%,
+    $background-primary 60%,
+    $background-secondary 90%
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
 }
