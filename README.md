@@ -4,6 +4,11 @@
 
 Application purpose is to show weather in warsaw at the current day.
 
+# Design
+
+Design is not mine. It is inspired by:
+https://www.behance.net/gallery/73112559/Logo-and-Branding-UIUX?tracking_source=search-all%7Cweather%20website
+
 # Developer environment setup
 
 ## clone repository and run:
