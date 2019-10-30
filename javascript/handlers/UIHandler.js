@@ -5,6 +5,14 @@ class UIHandler {
     return celsius;
   }
 
+  filterForecastForToday(weatherForecastData) {
+    return weatherForecastData.list.filter((singleForecast, index, array) => {
+      const todaysDate = new Date(array[0].dt_txt);
+      const singleForecastDate = new Date(singleForecast.dt_txt);
+      return todaysDate.getDay() === singleForecastDate.getDay();
+    });
+  }
+
   updateWeatherSummary(UIWeatherSumary, weatherForecastData) {
     // Get UI
     const UIDay = UIWeatherSumary.querySelector('.day');
@@ -43,12 +51,8 @@ class UIHandler {
 
   updateWeatherForcesat(UIWeatherForecast, weatherForecastData) {
     let finalForecastList = '';
-    const weatherForecastDataForToday = weatherForecastData.list.filter(
-      (singleForecast, index, array) => {
-        const todaysDate = new Date(array[0].dt_txt);
-        const singleForecastDate = new Date(singleForecast.dt_txt);
-        return todaysDate.getDay() === singleForecastDate.getDay();
-      }
+    const weatherForecastDataForToday = this.filterForecastForToday(
+      weatherForecastData
     );
     weatherForecastDataForToday.forEach(singleForecast => {
       const dateObject = new Date(singleForecast.dt_txt);
