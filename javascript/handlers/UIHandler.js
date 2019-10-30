@@ -51,15 +51,18 @@ class UIHandler {
 
   updateWeatherForcesat(UIWeatherForecast, weatherForecastData) {
     let finalForecastList = '';
+    // 1 Filter data only with information for today
     const weatherForecastDataForToday = this.filterForecastForToday(
       weatherForecastData
     );
+    // 2. Format data from API
     weatherForecastDataForToday.forEach(singleForecast => {
       const dateObject = new Date(singleForecast.dt_txt);
       const dayOfTheWeek = dateObject.toUTCString().split(',')[0];
       const hour = `${dateObject.getUTCHours()}:00`;
       const tempCelcius = this.kelvinToCelsius(singleForecast.main.temp);
       const weatherIconURL = `http://openweathermap.org/img/wn/${singleForecast.weather[0].icon}@2x.png`;
+      // 3. Agregate the dom data for each forecast element
       const singleForecastTemplate = `<li class="weather-forecast__item">
       <ul>
         <li class="day">
@@ -79,6 +82,7 @@ class UIHandler {
 
       finalForecastList += singleForecastTemplate;
     });
+    // 4. Update the DOM
     UIWeatherForecast.innerHTML = finalForecastList;
   }
 }
