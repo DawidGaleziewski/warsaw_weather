@@ -6,6 +6,10 @@
     .card-action {
       border-radius: 7px 0 0 0;
       background-color: #0f76bb;
+      .picture-caption {
+        color: $font-color;
+        text-shadow: $text-shadow;
+      }
     }
 
     .card-image {

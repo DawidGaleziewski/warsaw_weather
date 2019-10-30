@@ -6,10 +6,10 @@
       height: 100%;
       position: absolute;
       line {
-         stroke: $background-primary;
-         stroke-width: 1;
+        stroke: $background-primary;
+        stroke-width: 1;
       }
-   }
+    }
 
     text-shadow: $text-shadow;
     margin-bottom: 3rem;
@@ -39,25 +39,24 @@
         font-size: 2rem;
         font-weight: bold;
       }
-      .date{
+      .date {
         font-size: 1.5rem;
       }
       .humidity {
         font-size: 2rem;
       }
-      .weather-icon{
+      .weather-icon {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        
-        
-        &__image{
+
+        &__image {
           height: 10rem;
           display: inline-block;
         }
 
-        &__caption{
+        &__caption {
           font-size: 2rem;
           display: inline-block;
           text-transform: uppercase;
@@ -71,9 +70,26 @@
 
     .weather-forecast {
       display: flex;
+      flex-wrap: wrap;
       &__item {
-        margin-right: 2rem;
+        margin: 1rem;
+        margin-bottom: 2rem;
         text-align: center;
+
+        position: relative;
+        color: $font-color;
+        text-shadow: $text-shadow;
+
+        &::after {
+          box-shadow: $text-shadow;
+          position: absolute;
+          content: '';
+          background-color: $font-color;
+          width: 100%;
+          height: 3px;
+          bottom: -10px;
+          left: 0;
+        }
         .day {
           font-size: 2rem;
         }
